@@ -13,6 +13,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('home', [
+        "title" => "Dashboard"
+    ]);
 });
+
+Route::get('/school', function () {
+    return view('school', [
+        "title" => "Create School"
+    ]);
+});
+Route::get('/student', function () {
+    return view('student', [
+        "title" => "Create Student"
+    ]);
+});
+Route::get('/parent', function () {
+    return view('parent', [
+        "title" => "Create Parent"
+    ]);
+});
+Route::get('/class', function () {
+    return view('class', [
+        "title" => "Create Class"
+    ]);
+});
+Route::get('/admin-school', function () {
+    return view('admin', [
+        "title" => "Create Admin School"
+    ]);
+});
+Route::get('/', function () {
+    return view('signin', [
+        "title" => "Sign in"
+    ]);
+});
+Route::get('/sign-up', function () {
+    return view('signup', [
+        "title" => "Sign up"
+    ]);
+});
+
+Route::get('/users/List_Users', 'App\Http\Controllers\List_Users@index')->name('list_users.index');
