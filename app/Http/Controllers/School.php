@@ -73,23 +73,6 @@ class School extends BaseController
                 $db->collection('MSchool')->document($id)->set($data);
             }
         }
-    }
-
-    public function latest(){
-        $serviceAccount = (__DIR__).'/secret/SA_Bakat.json';
-        $factory = (new Factory)->withServiceAccount($serviceAccount);
-        $firestore = $factory->createFirestore();
-        $db = $firestore->database();
-        $docRef = $db->collection('MSchool');
-        $query = $docRef->orderBy('idschool', 'DESC')->limit(1);
-        $documents = $query->documents();
-        foreach ($documents as $document) {
-            if ($document->exists()) {
-                $id = str_pad(1, 8, '0', STR_PAD_LEFT);
-                var_dump($id);
-            } else {
-                printf('Document %s does not exist!' . PHP_EOL, $document->id());
-            }
-        }
+        return $this->index();
     }
 }

@@ -387,22 +387,24 @@
                                                 <!--begin::Modal body-->
                                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                     <!--begin::Form-->
-                                                    <form id="kt_modal_add_user_form" class="form" action="#" method="post">
+                                                    <form id="kt_modal_add_user_form" class="form" action="{{route('student.create') }}" method="post">
+                                                        @csrf
                                                         <input type="hidden" id="id_student" name="id_student" value='' />
 
                                                         <!--begin::Scroll-->
                                                         <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                                                             <!--begin::Input group-->
+                                                            
                                                             <div class="fv-row mb-7">
                                                                 <!--begin::Label-->
                                                                 <label class="required fw-bold fs-6 mb-2">Nama Sekolah</label>
                                                                 <!--end::Label-->
                                                                 <!--begin::Input-->
                                                                 <select id="school_name" name="school_name" class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+                                                                    @foreach ($value as $showdata)
                                                                     <option></option>
-                                                                    <option value="Administrator">Sekolahan Fardi</option>
-                                                                    <option value="Analyst">Sekolahan mameto</option>
-                                                                    <option value="Developer">Sekolahan Jefri</option>
+                                                                    <option value="{{$showdata['idschool']}}">{{$showdata['nama']}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                                 <!--end::Input-->
                                                             </div>
@@ -447,10 +449,10 @@
                                                                 <!--end::Label-->
                                                                 <!--begin::Input-->
                                                                 <select id="student_class" name="student_class" class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+                                                                    @foreach ($value2 as $showdata2)
                                                                     <option></option>
-                                                                    <option value="Administrator">1A</option>
-                                                                    <option value="Analyst">2A</option>
-                                                                    <option value="Developer">3A</option>
+                                                                    <option value="{{$showdata2['nama_kelas']}}">{{$showdata2['id_sekolah']}} - {{$showdata2['nama_kelas']}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                                 <!--end::Input-->
                                                             </div>
@@ -497,10 +499,9 @@
                                                 </div>
                                             </th>
                                             <th class="min-w-125px">student Name</th>
-                                            <th class="min-w-125px">Email</th>
-                                            <th class="min-w-125px">Telephone</th>
-                                            <th class="min-w-125px">Address</th>
-                                            <th class="min-w-125px">Postal Code</th>
+                                            <th class="min-w-125px">Kelas</th>
+                                            <th class="min-w-125px">Tanggal Lahir</th>
+                                            <th class="min-w-125px">Nama Sekolah</th>
                                             <th class="text-end min-w-100px">Actions</th>
                                         </tr>
                                         <!--end::Table row-->
@@ -508,6 +509,7 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
+                                    @foreach ($value3 as $showdata3)
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
@@ -518,37 +520,39 @@
                                             </td>
                                             <!--end::Checkbox-->
                                             <!--begin::User=-->
-                                            <td class="d-flex align-items-center">
+                                            <td>
                                                 <!--begin:: Avatar -->
-                                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                                <!-- <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                                     <a href="../../demo1/dist/apps/user-management/users/view.html">
                                                         <div class="symbol-label">
                                                             <img src="assets/media/avatars/300-9.jpg" alt="Francis Mitcham" class="w-100" />
                                                         </div>
                                                     </a>
-                                                </div>
+                                                </div> -->
                                                 <!--end::Avatar-->
                                                 <!--begin::User details-->
                                                 <div class="d-flex flex-column">
-                                                    <a class="text-gray-800 mb-1">Francis Mitcham</a>
-                                                    <span>f.mit@kpmg.com</span>
+                                                    <a class="text-gray-800 mb-1">{{$showdata3['nama']}}</a>
                                                 </div>
                                                 <!--begin::User details-->
                                             </td>
                                             <!--end::User=-->
                                             <!--begin::Role=-->
-                                            <td>Trial</td>
+                                            <td>{{$showdata3['kelas']}}</td>
                                             <!--end::Role=-->
                                             <!--begin::Last login=-->
                                             <td>
-                                                <div class="badge badge-light fw-bolder">3 weeks ago</div>
+                                                <div class="badge badge-light fw-bolder">{{$showdata3['tgllahir']}}</div>
                                             </td>
                                             <!--end::Last login=-->
                                             <!--begin::Two step=-->
-                                            <td></td>
                                             <!--end::Two step=-->
                                             <!--begin::Joined-->
-                                            <td>20 Jun 2022, 10:10 pm</td>
+                                            @foreach ($value as $showdata)
+                                            <?php if ($showdata3['idsekolah'] == $showdata['idschool']) {?>
+                                            <td>{{$showdata['nama']}}</td>
+                                            <?php } ?>
+                                            @endforeach
                                             <!--begin::Joined-->
                                             <!--begin::Action=-->
                                             <td class="text-end">
@@ -579,6 +583,7 @@
                                             <!--end::Action=-->
                                         </tr>
                                         <!--end::Table row-->
+                                    @endforeach
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>
