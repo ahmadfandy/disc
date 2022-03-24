@@ -387,9 +387,8 @@
                                                 <!--begin::Modal body-->
                                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                     <!--begin::Form-->
-                                                    <!-- <form id="kt_modal_add_user_form" class="form" action="#" method="post"> -->
-                                                    <input type="hidden" id="id_school" name="id_school" value='' />
-
+                                                    <form id="kt_modal_add_user_form" class="form" action="{{route('school.create') }}" method="post">
+                                                    @csrf
                                                     <!--begin::Scroll-->
                                                     <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                                                         <!--begin::Input group-->
@@ -454,7 +453,7 @@
                                                         </button>
                                                     </div>
                                                     <!--end::Actions-->
-                                                    <!-- </form> -->
+                                                    </form>
                                                     <!--end::Form-->
                                                 </div>
                                                 <!--end::Modal body-->
@@ -484,7 +483,6 @@
                                                 </div>
                                             </th>
                                             <th class="min-w-125px">School Name</th>
-                                            <th class="min-w-125px">Email</th>
                                             <th class="min-w-125px">Telephone</th>
                                             <th class="min-w-125px">Address</th>
                                             <th class="min-w-125px">Postal Code</th>
@@ -496,6 +494,8 @@
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
                                         <!--begin::Table row-->
+                                        <!--Batas Awal Foreach-->
+                                        @foreach ($value as $showdata)
                                         <tr>
                                             <!--begin::Checkbox-->
                                             <td>
@@ -505,37 +505,38 @@
                                             </td>
                                             <!--end::Checkbox-->
                                             <!--begin::User=-->
+                                            
                                             <td class="d-flex align-items-center">
+                                                
                                                 <!--begin:: Avatar -->
-                                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                                <!-- <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                                     <a href="../../demo1/dist/apps/user-management/users/view.html">
                                                         <div class="symbol-label">
                                                             <img src="assets/media/avatars/300-9.jpg" alt="Francis Mitcham" class="w-100" />
                                                         </div>
                                                     </a>
-                                                </div>
+                                                </div> -->
                                                 <!--end::Avatar-->
                                                 <!--begin::User details-->
                                                 <div class="d-flex flex-column">
-                                                    <a class="text-gray-800 mb-1">Francis Mitcham</a>
-                                                    <span>f.mit@kpmg.com</span>
+                                                    <a class="text-gray-800 mb-1">{{$showdata["nama"]}}</a>
+                                                    <span>{{$showdata["email"]}}</span>
                                                 </div>
                                                 <!--begin::User details-->
                                             </td>
                                             <!--end::User=-->
                                             <!--begin::Role=-->
-                                            <td>Trial</td>
                                             <!--end::Role=-->
                                             <!--begin::Last login=-->
                                             <td>
-                                                <div class="badge badge-light fw-bolder">3 weeks ago</div>
+                                                <div class="badge badge-light fw-bolder">{{$showdata["notelp"]}}</div>
                                             </td>
                                             <!--end::Last login=-->
                                             <!--begin::Two step=-->
-                                            <td></td>
+                                            <td> {{$showdata["alamat"]}}</td>
                                             <!--end::Two step=-->
                                             <!--begin::Joined-->
-                                            <td>20 Jun 2022, 10:10 pm</td>
+                                            <td>{{$showdata["kodepos"]}}</td>
                                             <!--begin::Joined-->
                                             <!--begin::Action=-->
                                             <td class="text-end">
@@ -565,6 +566,8 @@
                                             </td>
                                             <!--end::Action=-->
                                         </tr>
+                                        @endforeach
+                                        <!--Batas Akhir Foreach-->
                                         <!--end::Table row-->
                                     </tbody>
                                     <!--end::Table body-->

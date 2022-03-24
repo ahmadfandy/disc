@@ -19,11 +19,18 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/school', function () {
-    return view('school', [
-        "title" => "Create School"
-    ]);
-});
+// Route::get('/school', function () {
+//     return view('school', [
+//         "title" => "Create School"
+//     ]);
+// });
+
+Route::get('/school', 'App\Http\Controllers\School@index')->name('school.index');
+
+Route::get('/school/latest', 'App\Http\Controllers\School@latest')->name('school.latest');
+
+Route::post('/school', 'App\Http\Controllers\School@create_school')->name('school.create');
+
 Route::get('/student', function () {
     return view('student', [
         "title" => "Create Student"
