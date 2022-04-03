@@ -36,5 +36,40 @@ Route::get('/sign-up', function () {
         "title" => "Sign up"
     ]);
 });
+Route::get('/user', function () {
+    return view('user', [
+        "title" => "User Setting"
+    ]);
+});
+Route::get('/menu-group', function () {
+    return view('menu_group', [
+        "title" => "Menu Group"
+    ]);
+});
+Route::get('/level', function () {
+    return view('level', [
+        "title" => "Level User"
+    ]);
+});
+Route::get('/tipe-soal', function () {
+    return view('tipe_soal', [
+        "title" => "Tipe Soal"
+    ]);
+});
+Route::get('/soal', function () {
+    return view('soal', [
+        "title" => "Create Soal"
+    ]);
+});
+Route::get('/test', function () {
+    return view('test', [
+        "title" => "Create Test"
+    ]);
+});
+Route::get('/analyze', function () {
+    return view('analyze', [
+        "title" => "Analyze"
+    ]);
+});
 
 Route::get('/users/List_Users', 'App\Http\Controllers\List_Users@index')->name('list_users.index');
