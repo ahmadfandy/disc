@@ -71,5 +71,10 @@ Route::get('/analyze', function () {
         "title" => "Analyze"
     ]);
 });
+Route::get('/jawaban', function () {
+    return view('jawaban', [
+        "title" => "Jawaban"
+    ]);
+});
 
 Route::get('/users/List_Users', 'App\Http\Controllers\List_Users@index')->name('list_users.index');
