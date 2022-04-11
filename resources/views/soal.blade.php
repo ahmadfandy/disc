@@ -39,7 +39,7 @@
         <!--begin::Wrapper-->
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
             <!--begin::Header-->
-            <div id="kt_header" style="" class="header align-items-stretch">
+            <div id="kt_header" class="header align-items-stretch">
                 <!--begin::Container-->
                 <!--begin::Aside mobile toggle-->
                 <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
@@ -387,8 +387,8 @@
                                                 <!--begin::Modal body-->
                                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                     <!--begin::Form-->
-                                                    <form id="kt_modal_add_user_form" class="form" action="" method="post">
-
+                                                    <form id="kt_modal_add_user_form" class="form" action="{{route('soal.create') }}" method="post">
+                                                        @csrf
                                                         <input type="hidden" id="id_class" name="id_class" value='' />
                                                         <!--begin::Scroll-->
                                                         <div class="fv-row mb-7">
@@ -396,10 +396,14 @@
                                                             <label class="required fw-bold fs-6 mb-2">Tipe Soal</label>
                                                             <!--end::Label-->
                                                             <!--begin::Input-->
-                                                            <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
-                                                                <option></option>
-                                                                <option value="Administrator">D</option>
-                                                                <option value="Analyst">S</option>
+                                                            <select id="soal_select" name="soal_select" class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+                                                            <option></option>
+                                                            @foreach ($value2 as $showdata2)
+                                                                <option value="{{$showdata2['label']}}">{{$showdata2['label']}}</option>
+                                                            @endforeach
+                                                            <!-- <option value="Administrator">Sekolahan Fardi</option>
+                                                            <option value="Analyst">Sekolahan mameto</option>
+                                                            <option value="Developer">Sekolahan Jefri</option> -->
                                                             </select>
                                                             <!--end::Input-->
                                                         </div>
@@ -411,7 +415,10 @@
                                                                 <label class="required fw-bold fs-6 mb-2">Pertanyaan Soal</label>
                                                                 <!--end::Label-->
                                                                 <!--begin::Input-->
-                                                                <input type="text" id="soal" name="soal" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Pertanyaan Soal" value="" />
+                                                                <!-- <input type="textarea" id="soal" name="soal" rows="4" cols="50" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Pertanyaan Soal" value="" /> -->
+                                                                <textarea rows="4" cols="50" id="soal" name="soal" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Pertanyaan Soal">
+
+                                                                </textarea>
                                                                 <!--end::Input-->
                                                             </div>
                                                             <!--end::Input group-->
@@ -423,7 +430,18 @@
                                                                 <label class="required fw-bold fs-6 mb-2">No Urut</label>
                                                                 <!--end::Label-->
                                                                 <!--begin::Input-->
-                                                                <input type="text" id="no_urut" name="no_urut" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Masukkan No Urut Soal" value="" />
+                                                                <select id="urutan" name="urutan" class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+                                                                    <option></option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <!-- <option value="Administrator">Sekolahan Fardi</option>
+                                                                    <option value="Analyst">Sekolahan mameto</option>
+                                                                    <option value="Developer">Sekolahan Jefri</option> -->
+                                                                </select>
                                                                 <!--end::Input-->
                                                             </div>
                                                             <!--end::Input group-->
@@ -480,6 +498,7 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
+                                    @foreach ($value as $showdata)
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
@@ -502,15 +521,19 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::User details-->
                                                 <div class="d-flex flex-column">
-                                                    <a class="text-gray-800 mb-1">D</a>
+                                                    <a class="text-gray-800 mb-1">{{$showdata['tipe']}}</a>
                                                 </div>
                                                 <!--begin::User details-->
                                             </td>
                                             <!--end::User=-->
                                             <!--begin::Role=-->
-                                            <td>Siapa Nama aku ?</td>
-                                            <td>1</td>
-                                            <td>Suspend</td>
+                                            <td>{{$showdata['pertanyaan']}}</td>
+                                            <td>{{$showdata['no_urut']}}</td>
+                                            <?php if ($showdata['status'] == 'A') {?>
+                                                <td>Active</td>
+                                            <?php } else { ?>
+                                                <td>Suspend</td>
+                                            <?php }?>
                                             <!--end::Role=-->
                                             <!--begin::Last login=-->
                                             <!--end::Last login=-->
@@ -547,6 +570,7 @@
                                         </tr>
 
                                         <!--end::Table row-->
+                                    @endforeach
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>

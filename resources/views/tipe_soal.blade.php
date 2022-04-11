@@ -39,7 +39,7 @@
         <!--begin::Wrapper-->
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
             <!--begin::Header-->
-            <div id="kt_header" style="" class="header align-items-stretch">
+            <div id="kt_header" class="header align-items-stretch">
                 <!--begin::Container-->
                 <!--begin::Aside mobile toggle-->
                 <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
@@ -387,8 +387,8 @@
                                                 <!--begin::Modal body-->
                                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                     <!--begin::Form-->
-                                                    <form id="kt_modal_add_user_form" class="form" action="" method="post">
-
+                                                    <form id="kt_modal_add_user_form" class="form" action="{{route('tipe-soal.create') }}" method="post">
+                                                        @csrf
                                                         <input type="hidden" id="id_class" name="id_class" value='' />
                                                         <!--begin::Scroll-->
                                                         <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
@@ -452,6 +452,7 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
+                                    @foreach ($value as $showdata)
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
@@ -462,8 +463,12 @@
                                             </td>
                                             <!--end::Checkbox-->
                                             <!--begin::Role=-->
-                                            <td>D</td>
-                                            <td>Suspend</td>
+                                            <td>{{$showdata['label']}}</td>
+                                            <?php if ($showdata['status'] == 'A') {?>
+                                                <td>Active</td>
+                                            <?php } else { ?>
+                                                <td>Suspend</td>
+                                            <?php }?>
                                             <!--end::Role=-->
                                             <!--begin::Last login=-->
                                             <!--end::Last login=-->
@@ -500,6 +505,7 @@
                                         </tr>
 
                                         <!--end::Table row-->
+                                    @endforeach
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>

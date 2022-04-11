@@ -20,6 +20,16 @@ Route::post('/class', 'App\Http\Controllers\Class_School@create_class')->name('c
 Route::get('/student', 'App\Http\Controllers\Student@index')->name('student.index');
 Route::post('/student', 'App\Http\Controllers\Student@create_student')->name('student.create');
 
+Route::get('/tipe-soal', 'App\Http\Controllers\Tipe_soal@index')->name('tipe-soal.index');
+Route::post('/tipe-soal', 'App\Http\Controllers\Tipe_soal@create')->name('tipe-soal.create');
+
+Route::get('/soal', 'App\Http\Controllers\Soal@index')->name('soal.index');
+Route::post('/soal', 'App\Http\Controllers\Soal@create')->name('soal.create');
+
+Route::get('/jawaban', 'App\Http\Controllers\Jawaban@index')->name('jawaban.index');
+Route::post('/jawaban', 'App\Http\Controllers\Jawaban@create')->name('jawaban.create');
+
+
 Route::get('/parent', function () {
     return view('parent', [
         "title" => "Create Parent"
@@ -51,16 +61,8 @@ Route::get('/level', function () {
         "title" => "Level User"
     ]);
 });
-Route::get('/tipe-soal', function () {
-    return view('tipe_soal', [
-        "title" => "Tipe Soal"
-    ]);
-});
-Route::get('/soal', function () {
-    return view('soal', [
-        "title" => "Create Soal"
-    ]);
-});
+
+
 Route::get('/test', function () {
     return view('test', [
         "title" => "Create Test"
@@ -69,11 +71,6 @@ Route::get('/test', function () {
 Route::get('/analyze', function () {
     return view('analyze', [
         "title" => "Analyze"
-    ]);
-});
-Route::get('/jawaban', function () {
-    return view('jawaban', [
-        "title" => "Jawaban"
     ]);
 });
 
