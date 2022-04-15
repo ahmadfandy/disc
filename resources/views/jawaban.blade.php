@@ -39,7 +39,7 @@
         <!--begin::Wrapper-->
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
             <!--begin::Header-->
-            <div id="kt_header" style="" class="header align-items-stretch">
+            <div id="kt_header" class="header align-items-stretch">
                 <!--begin::Container-->
                 <!--begin::Aside mobile toggle-->
                 <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
@@ -387,8 +387,8 @@
                                                 <!--begin::Modal body-->
                                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                                     <!--begin::Form-->
-                                                    <form id="kt_modal_add_user_form" class="form" action="" method="post">
-
+                                                    <form id="kt_modal_add_user_form" class="form" action="{{route('jawaban.create') }}" method="post">
+                                                        @csrf
                                                         <input type="hidden" id="id_class" name="id_class" value='' />
                                                         <!--begin::Scroll-->
                                                         <div class="fv-row mb-7">
@@ -453,9 +453,8 @@
                                                     <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                                 </div>
                                             </th>
-                                            <th class="min-w-125px">Label Jawaban</th>
-                                            <th class="min-w-125px">Skor</th>
-                                            <th class="min-w-125px">Status</th>
+                                            <th class="min-w-188px">Label Jawaban</th>
+                                            <th class="min-w-187px">Skor</th>
                                             <th class="text-end min-w-100px">Actions</th>
                                         </tr>
                                         <!--end::Table row-->
@@ -463,6 +462,9 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
+                                        @foreach ($value as $showdata)
+                                            
+                                        
                                         <!--begin::Table row-->
                                         <tr>
                                             <!--begin::Checkbox-->
@@ -485,14 +487,13 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::User details-->
                                                 <div class="d-flex flex-column">
-                                                    <a class="text-gray-800 mb-1">Sangat Benar</a>
+                                                    <a class="text-gray-800 mb-1">{{$showdata['label_jawaban']}}</a>
                                                 </div>
                                                 <!--begin::User details-->
                                             </td>
                                             <!--end::User=-->
                                             <!--begin::Role=-->
-                                            <td>1</td>
-                                            <td>Suspend</td>
+                                            <td>{{$showdata['skor']}}</td>
                                             <!--end::Role=-->
                                             <!--begin::Last login=-->
                                             <!--end::Last login=-->
@@ -527,7 +528,7 @@
                                             </td>
                                             <!--end::Action=-->
                                         </tr>
-
+                                        @endforeach
                                         <!--end::Table row-->
                                     </tbody>
                                     <!--end::Table body-->

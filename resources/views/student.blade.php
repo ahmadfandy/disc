@@ -39,7 +39,7 @@
         <!--begin::Wrapper-->
         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
             <!--begin::Header-->
-            <div id="kt_header" style="" class="header align-items-stretch">
+            <div id="kt_header" class="header align-items-stretch">
                 <!--begin::Container-->
                 <!--begin::Aside mobile toggle-->
                 <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show aside menu">
