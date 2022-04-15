@@ -76,5 +76,30 @@ Route::get('/jawaban', function () {
         "title" => "Jawaban"
     ]);
 });
+Route::get('/tsoalheader', function () {
+    return view('tsoalheader', [
+        "title" => "TSoalHeader"
+    ]);
+});
+Route::get('/mdspmformula', function () {
+    return view('mdspmformula', [
+        "title" => "MDSPMFORMULA"
+    ]);
+});
+Route::get('/credit', function () {
+    return view('credit', [
+        "title" => "Credit"
+    ]);
+});
+Route::get('/tcredit', function () {
+    return view('tcredit', [
+        "title" => "Tcredit"
+    ]);
+});
+Route::get('/tsoal', function () {
+    return view('tsoal', [
+        "title" => "Tsoal"
+    ]);
+});
 
 Route::get('/users/List_Users', 'App\Http\Controllers\List_Users@index')->name('list_users.index');

@@ -31,12 +31,17 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Page Vendor Stylesheets(used by this page)-->
-    <link href="./assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="./assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="./assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="./assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://resources/demos/style.css">
+
+
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -47,25 +52,47 @@ License: For each use you must have a valid license purchased only from above li
     @yield('body')
 
     <script>
-        var hostUrl = "./assets/";
+        var hostUrl = "../assets/";
     </script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="./assets/plugins/global/plugins.bundle.js"></script>
-    <script src="./assets/js/scripts.bundle.js"></script>
+    <script src="../assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+
+    <script src="../assets/plugins/global/plugins.bundle.js"></script>
+    <script src="../assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Vendors Javascript(used by this page)-->
-    <script src="./assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-    <script src="./assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="../assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <!--end::Page Vendors Javascript-->
     <!--begin::Page Custom Javascript(used by this page)-->
-    <script src="./assets/js/widgets.bundle.js"></script>
-    <script src="./assets/js/custom/widgets.js"></script>
-    <script src="./assets/js/custom/apps/chat/chat.js"></script>
-    <script src="./assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-    <script src="./assets/js/custom/utilities/modals/new-target.js"></script>
-    <script src="./assets/js/custom/utilities/modals/create-app.js"></script>
-    <script src="./assets/js/custom/utilities/modals/users-search.js"></script>
-    <script src="./assets/js/custom/authentication/sign-in/general.js"></script>
+    <script src="../assets/js/widgets.bundle.js"></script>
+    <script src="../assets/js/custom/widgets.js"></script>
+    <script src="../assets/js/custom/apps/chat/chat.js"></script>
+    <script src="../assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="../assets/js/custom/utilities/modals/new-target.js"></script>
+    <script src="../assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="../assets/js/custom/utilities/modals/users-search.js"></script>
+    <script src="../assets/js/custom/authentication/sign-in/general.js"></script>
+
+    <script src="../assets/js/jquery.timepicker.js"></script>
+    <script src="../assets/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="../assets/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="../assets/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <script src="../assets/js/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script type='text/javascript'>
+        $("#tanggal_lahir").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd",
+        });
+        $("#tanggal_lahir").inputmask("yyyy-mm-dd", {
+            "placeholder": "yyyy-mm-dd"
+        });
+    </script>
+
+
 
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
