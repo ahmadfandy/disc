@@ -103,5 +103,10 @@ Route::get('/tsoal', function () {
         "title" => "Tsoal"
     ]);
 });
+Route::get('/report', function () {
+    return view('report', [
+        "title" => "Report"
+    ]);
+});
 
 Route::get('/users/List_Users', 'App\Http\Controllers\List_Users@index')->name('list_users.index');

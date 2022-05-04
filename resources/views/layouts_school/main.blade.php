@@ -46,10 +46,11 @@ License: For each use you must have a valid license purchased only from above li
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 
-    
+    @yield('body')
+
     <script>
         var hostUrl = "../assets/";
-        </script>
+    </script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
 
     <script src="../assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -79,7 +80,8 @@ License: For each use you must have a valid license purchased only from above li
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    @yield('body')
+
+
 
 
     <!--end::Page Custom Javascript-->

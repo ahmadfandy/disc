@@ -28,22 +28,22 @@
                             <span class="menu-arrow"></span>
                         </span>
                         <div class="menu-sub menu-sub-accordion">
-                            <div class="menu-item">
+                            <!-- <div class="menu-item">
                                 <a class="menu-link" href="/student">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Create Student</span>
                                 </a>
-                            </div>
-                            <div class="menu-item">
+                            </div> -->
+                            <!-- <div class="menu-item">
                                 <a class="menu-link" href="/parent">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
                                     <span class="menu-title">Create Parent</span>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="menu-item">
                                 <a class="menu-link" href="/admin-school">
                                     <span class="menu-bullet">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -91,8 +91,8 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    </div> -->
+                    <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -126,7 +126,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -171,17 +171,9 @@
                                     <span class="menu-title">MDSPMFORMULA</span>
                                 </a>
                             </div>
-                            <!-- <div class="menu-item">
-                                <a class="menu-link" href="/analyze">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Analyze</span>
-                                </a>
-                            </div> -->
                         </div>
-                    </div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    </div> -->
+                    <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -207,32 +199,13 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                        <span class="menu-link">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Report</span>
-                            <span class="menu-arrow"></span>
-                        </span>
-                        <div class="menu-sub menu-sub-accordion">
-                            <div class="menu-item">
-                                <a class="menu-link" href="/report">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Report</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                     <!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Setting</span>
+                            <span class="menu-title">Settings</span>
                             <span class="menu-arrow"></span>
                         </span>
                         <div class="menu-sub menu-sub-accordion">
